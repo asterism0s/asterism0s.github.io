@@ -1,51 +1,14 @@
+@use "./fonts";
 
 html {
   font-size: 16px;
 }
 
 body {
-  font-family: var(--font-serif);
-  font-size: var(--text-body);
-  line-height: var(--leading);
-  letter-spacing: var(--tracking);
-  color: var(--text);
-  background-color: var(--bg);
+  font-family: fonts.$font-primary;
+  font-size: fonts.$font-size-baseline;
+  line-height: fonts.$line-height-base;
+  letter-spacing: fonts.$letter-spacing-base;
   font-kerning: normal;
   text-rendering: optimizeLegibility;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin: 0;
-  font-weight: 400;
-  text-wrap: balance;
-}
-
-p {
-  margin-block-end: var(--space-3);
-  text-wrap: pretty;
-
-  &:last-child {
-    margin-block-end: 0;
-  }
-}
-
-
-a {
-  color: inherit;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 3px;
-
-  &:hover {
-    text-decoration-thickness: 2px;
-  }
-}
-
-:focus-visible {
-  outline: 2px solid currentColor;
-  outline-offset: 3px;
 }

@@ -1,0 +1,27 @@
+// Fonts
+$font-primary: "Baskervville", Georgia, serif;
+$font-secondary: "Figtree", system-ui, sans-serif;
+
+$font-size-display: clamp(2rem, 0.4rem + 5.75vw, 7.3rem);
+
+$font-size-min: 0.25rem;
+$font-size-quark: 0.5rem;
+$font-size-nano: 0.75rem;
+$font-size-micro: 0.875rem;
+$font-size-baseline: 1rem;
+$font-size-3xs: 1.5rem;
+$font-size-2xs: 2rem;
+$font-size-xs: 2.5rem;
+$font-size-sm: 3rem;
+$font-size-md: 4rem;
+$font-size-lg: 4.5rem;
+$font-size-xl: 5rem;
+$font-size-2xl: 6rem;
+$font-size-3xl: 6.5rem;
+$font-size-mega: 8rem;
+$font-size-max: 10rem;
+
+// Type rhythm
+$line-height-base: 1.8;
+$line-height-display: 1.33;
+$letter-spacing-base: 0.05em;

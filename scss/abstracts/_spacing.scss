@@ -1,0 +1,22 @@
+
+// Basic spacers
+$spacer-min: 0.25rem;
+$spacer-quark: 0.5rem;
+$spacer-nano: 0.75rem;
+$spacer-micro: 0.875rem;
+$spacer-baseline: 1rem;
+$spacer-3xs: 1.5rem;
+$spacer-2xs: 2rem;
+$spacer-xs: 2.5rem;
+$spacer-sm: 3rem;
+$spacer-md: 4rem;
+$spacer-lg: 4.5rem;
+$spacer-xl: 5rem;
+$spacer-2xl: 6rem;
+$spacer-3xl: 6.5rem;
+$spacer-mega: 8rem;
+$spacer-max: 10rem;
+
+// Layout
+$container: 71rem; // 1136px, centered in the 1920px frame
+$gutter: clamp(1.25rem, 14vw, 3.5rem); // side margin: about 56px on a 390px phone
