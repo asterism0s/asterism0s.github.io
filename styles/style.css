@@ -73,11 +73,7 @@ p:last-child {
 
 a {
   color: inherit;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 3px;
-}
-a:hover {
-  text-decoration-thickness: 2px;
+  text-decoration: none;
 }
 
 :focus-visible {
@@ -96,4 +92,9 @@ body {
   letter-spacing: 0.05em;
   font-kerning: normal;
   text-rendering: optimizeLegibility;
+}
+@media (min-width: 64rem) {
+  body {
+    font-size: 0.625rem;
+  }
 }/*# sourceMappingURL=style.css.map */
