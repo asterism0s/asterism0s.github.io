@@ -3,18 +3,18 @@
 
 
 html {
-  font-size: 16px;
+    font-size: 16px;
 }
 
 body {
-  font-family: fonts.$font-primary;
-  font-size: fonts.$font-size-baseline;
-  line-height: fonts.$line-height-base;
-  letter-spacing: fonts.$letter-spacing-base;
-  font-kerning: normal;
-  text-rendering: optimizeLegibility;
+    font-family: fonts.$font-primary;
+    font-size: fonts.$font-size-baseline;
+    line-height: fonts.$line-height-base;
+    letter-spacing: fonts.$letter-spacing-base;
+    font-kerning: normal;
+    text-rendering: optimizeLegibility;
 
-  @media (min-width: breakpoints.$breakpoint-lg) {
-    font-size: fonts.$font-size-body-desktop;
-  }
+    @media (min-width: breakpoints.$breakpoint-lg) {
+        font-size: fonts.$font-size-body-desktop;
+    }
 }

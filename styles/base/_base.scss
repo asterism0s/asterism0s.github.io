@@ -2,12 +2,12 @@
 @use "../abstracts/spacing";
 
 html {
-  color-scheme: light;
+    color-scheme: light;
 }
 
 body {
-  color: colors.$color-text-primary;
-  background-color: colors.$color-background;
+    color: colors.$color-text-primary;
+    background-color: colors.$color-background;
 }
 
 h1,
@@ -16,25 +16,26 @@ h3,
 h4,
 h5,
 h6 {
-  margin: 0;
-  font-weight: 400;
-  text-wrap: balance;
+    margin: 0;
+    font-weight: 400;
+    text-wrap: balance;
 }
 
 p {
-  margin-block-end: spacing.$spacer-3xs;
-  text-wrap: pretty;
+    margin-block-end: spacing.$spacer-3xs;
+    text-wrap: pretty;
 
-  &:last-child {
-    margin-block-end: 0;
-  }
+    &:last-child {
+        margin-block-end: 0;
+    }
 }
+
 a {
-  color: inherit;
-  text-decoration: none;
+    color: inherit;
+    text-decoration: none;
 }
 
 :focus-visible {
-  outline: 2px solid currentColor;
-  outline-offset: 3px;
+    outline: 2px solid currentColor;
+    outline-offset: 3px;
 }
