@@ -1,0 +1,104 @@
+@use "../abstracts/colors";
+@use "../abstracts/spacing";
+@use "../abstracts/breakpoints";
+@use "../base/fonts";
+
+
+.hero {
+    display: grid;
+    container-type: inline-size; // lets the title size itself by the hero's width
+    max-width: calc(#{spacing.$container} + 2 * #{spacing.$gutter});
+    margin-inline: auto;
+    padding-inline: spacing.$gutter;
+
+    &__intro {
+        grid-area: 1 / 1;
+        margin-block-end: spacing.$spacer-baseline;
+
+        @media (min-width: breakpoints.$breakpoint-lg) {
+            position: relative; // sits above the gradient
+            grid-area: 2 / 1;
+            margin-block: 36.1% 0;
+            margin-inline-start: 9.2%;
+        }
+    }
+
+    &__name {
+        margin-block-end: spacing.$spacer-nano;
+    }
+
+    // Gradient frame: blobs drift in and out, and overflow: hidden clips them at the edges
+    &__gradient {
+        position: relative;
+        grid-area: 2 / 1;
+        overflow: hidden;
+        aspect-ratio: 272 / 193; // mobile crop from the Figma
+        background-color: colors.$color-gradient-frame;
+
+        @media (min-width: breakpoints.$breakpoint-lg) {
+            aspect-ratio: 1136 / 662; // desktop crop from the Figma
+        }
+    }
+
+    &__blob {
+        position: absolute;
+        width: 70%;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        animation: blob-drift 20s ease-in-out infinite alternate;
+
+        &--coral {
+            inset: 30% auto auto -10%;
+            background: radial-gradient(circle closest-side, colors.$color-blob-coral, transparent);
+            animation-duration: 22s;
+        }
+
+        &--peach {
+            inset: -35% auto auto -15%;
+            background: radial-gradient(circle closest-side, colors.$color-blob-peach, transparent);
+            animation-duration: 26s;
+            animation-delay: -8s;
+        }
+
+        &--olive {
+            inset: -30% -10% auto auto;
+            background: radial-gradient(circle closest-side, colors.$color-blob-olive, transparent);
+            animation-duration: 18s;
+            animation-delay: -4s;
+        }
+    }
+
+    &__title {
+        position: relative; // sits above the gradient
+        grid-area: 2 / 1;
+        align-self: start;
+        margin-block-start: 48.5%;
+        margin-inline-start: 45%;
+        font-size: fonts.$font-size-display;
+        line-height: fonts.$line-height-display;
+
+        @media (min-width: breakpoints.$breakpoint-lg) {
+            margin-block-start: 36.5%;
+            margin-inline-start: 47.8%;
+        }
+    }
+}
+
+
+@keyframes blob-drift {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    33% {
+        transform: translate(25%, -15%) scale(1.1);
+    }
+
+    66% {
+        transform: translate(-20%, 20%) scale(0.9);
+    }
+
+    100% {
+        transform: translate(15%, 25%) scale(1.05);
+    }
+}

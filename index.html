@@ -1,40 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
-    <link rel="stylesheet" href="styles/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&family=Figtree:wght@400;700&display=swap"
-        rel="stylesheet">
-    <script src="js/menu.js" defer></script>
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sarah Siqueira · Web developer &amp; visual designer</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
+        <link rel="stylesheet" href="styles/style.css">
+        <link href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&family=Figtree:wght@400;700&display=swap"
+            rel="stylesheet">
+        <script src="js/menu.js" defer></script>
+    </head>
 
-<body>
-    <header class="site-header">
-        <a class="site-header__logo" href="index.html">
-            <img src="assets/icons/logo.svg" alt="Sarah Siqueira, home" width="144" height="99">
-        </a>
+    <body>
+        <header class="site-header">
+            <a class="site-header__logo" href="index.html">
+                <img src="assets/icons/logo.svg" alt="Sarah Siqueira, home" width="144" height="99">
+            </a>
 
 
-        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" hidden>
-            <span class="menu-toggle__line"></span>
-            <span class="menu-toggle__line"></span>
-            <span class="visually-hidden">Menu</span>
-        </button>
+            <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" hidden>
+                <span class="menu-toggle__line"></span>
+                <span class="menu-toggle__line"></span>
+                <span class="visually-hidden">Menu</span>
+            </button>
 
-        <nav class="site-nav" id="site-nav" aria-label="Main">
-            <ul class="site-nav__list">
-                <li><a class="site-nav__link" href="resume.html">resume</a></li>
-                <li><a class="site-nav__link" href="work.html">work</a></li>
-                <li><a class="site-nav__link" href="writing.html">writing</a></li>
-                <li><a class="site-nav__link" href="pictures.html">pictures</a></li>
-                <li><a class="site-nav__link" href="illustrations.html">illustrations</a></li>
-            </ul>
-        </nav>
-    </header>
-</body>
+            <nav class="site-nav" id="site-nav" aria-label="Main">
+                <ul class="site-nav__list">
+                    <li><a class="site-nav__link" href="resume.html">resume</a></li>
+                    <li><a class="site-nav__link" href="work.html">work</a></li>
+                    <li><a class="site-nav__link" href="writing.html">writing</a></li>
+                    <li><a class="site-nav__link" href="pictures.html">pictures</a></li>
+                    <li><a class="site-nav__link" href="illustrations.html">illustrations</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main id="content">
+            <section class="hero" aria-labelledby="hero-title">
+                <div class="hero__intro">
+                    <p class="hero__name">sarah siqueira.</p>
+                    <p class="hero__tagline">a brazilian webdev &amp; visual designer.<br>based in stockholm.</p>
+                </div>
+
+                <div class="hero__gradient" aria-hidden="true">
+                    <span class="hero__blob hero__blob--peach"></span>
+                    <span class="hero__blob hero__blob--olive"></span>
+                    <span class="hero__blob hero__blob--coral"></span>
+                </div>
+
+                <h1 class="hero__title" id="hero-title">typesetting<br>the web</h1>
+            </section>
+        </main>
+    </body>
 
 </html>

@@ -48,6 +48,7 @@ ol {
   *::after {
     transition-duration: 0.01ms !important;
     animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
   }
 }
 html {
@@ -233,4 +234,93 @@ body {
 
 .site-header[data-menu].site-header--no-transition .site-nav {
   transition: none;
+}
+
+.hero {
+  display: grid;
+  container-type: inline-size;
+  max-width: calc(71rem + 2 * clamp(1.25rem, 14vw, 3.5rem));
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 14vw, 3.5rem);
+}
+.hero__intro {
+  grid-area: 1/1;
+  margin-block-end: 1rem;
+}
+@media (min-width: 64rem) {
+  .hero__intro {
+    position: relative;
+    grid-area: 2/1;
+    margin-block: 36.1% 0;
+    margin-inline-start: 9.2%;
+  }
+}
+.hero__name {
+  margin-block-end: 0.75rem;
+}
+.hero__gradient {
+  position: relative;
+  grid-area: 2/1;
+  overflow: hidden;
+  aspect-ratio: 272/193;
+  background-color: #F7EEE4;
+}
+@media (min-width: 64rem) {
+  .hero__gradient {
+    aspect-ratio: 1136/662;
+  }
+}
+.hero__blob {
+  position: absolute;
+  width: 70%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  animation: blob-drift 20s ease-in-out infinite alternate;
+}
+.hero__blob--coral {
+  inset: 30% auto auto -10%;
+  background: radial-gradient(circle closest-side, #F09C8A, transparent);
+  animation-duration: 22s;
+}
+.hero__blob--peach {
+  inset: -35% auto auto -15%;
+  background: radial-gradient(circle closest-side, #F8D9BF, transparent);
+  animation-duration: 26s;
+  animation-delay: -8s;
+}
+.hero__blob--olive {
+  inset: -30% -10% auto auto;
+  background: radial-gradient(circle closest-side, #A3A27E, transparent);
+  animation-duration: 18s;
+  animation-delay: -4s;
+}
+.hero__title {
+  position: relative;
+  grid-area: 2/1;
+  align-self: start;
+  margin-block-start: 48.5%;
+  margin-inline-start: 45%;
+  font-size: clamp(2rem, 0.4rem + 5.75vw, 7.3rem);
+  line-height: 1.33;
+}
+@media (min-width: 64rem) {
+  .hero__title {
+    margin-block-start: 36.5%;
+    margin-inline-start: 47.8%;
+  }
+}
+
+@keyframes blob-drift {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(25%, -15%) scale(1.1);
+  }
+  66% {
+    transform: translate(-20%, 20%) scale(0.9);
+  }
+  100% {
+    transform: translate(15%, 25%) scale(1.05);
+  }
 }/*# sourceMappingURL=style.css.map */
