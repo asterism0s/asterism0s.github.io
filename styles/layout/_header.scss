@@ -96,7 +96,7 @@
     z-index: 11; // stays above the open panel
     display: flex;
     flex-direction: column;
-    gap: spacing.$spacer-quark;
+    gap: 0.4375rem; 
     align-items: center;
     justify-content: center;
     width: 2.75rem; // 44px: comfortable touch target
@@ -124,10 +124,14 @@
     }
 
     &[aria-expanded="true"] &__line:first-child {
-        transform: translateY(calc(#{spacing.$spacer-quark} / 2 + 0.5px)) rotate(45deg);
+        transform: translateY(0.25rem) rotate(45deg);
     }
 
     &[aria-expanded="true"] &__line:nth-child(2) {
-        transform: translateY(calc(#{spacing.$spacer-quark} / -2 - 0.5px)) rotate(-45deg);
+        transform: translateY(-0.25rem) rotate(-45deg);
     }
+}
+
+.site-header[data-menu].site-header--no-transition .site-nav {
+    transition: none;
 }

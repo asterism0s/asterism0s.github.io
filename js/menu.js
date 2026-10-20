@@ -22,6 +22,19 @@ if (siteHeader && menuButton && siteNav) {
         }
     });
 
+    const desktopQuery = window.matchMedia("(min-width: 64rem)");
+
+    desktopQuery.addEventListener("change", () => {
+        siteHeader.classList.add("site-header--no-transition");
+        setMenu(false);
+
+        requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+                siteHeader.classList.remove("site-header--no-transition");
+            });
+        });
+    });
+
     siteNav.addEventListener("click", (event) => {
         if (event.target.closest("a")) setMenu(false);
     });
