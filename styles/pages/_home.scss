@@ -80,7 +80,7 @@
         grid-area: 2 / 1;
         align-self: start;
         margin-block-start: 48.5%;
-        margin-inline-start: 47%;
+        margin-inline-start: 48%;
         font-size: fonts.$font-size-display;
         line-height: fonts.$line-height-display;
         letter-spacing: fonts.$letter-spacing-base;
@@ -89,6 +89,33 @@
             margin-block-start: 36.5%;
            
         }
+    }
+}
+
+.about {
+    display: grid;
+    max-width: calc(#{spacing.$container} + 2 * #{spacing.$gutter});
+    margin-block-start: spacing.$spacer-2xl;
+    margin-inline: auto;
+    padding-inline: spacing.$gutter;
+
+    @media (min-width: breakpoints.$breakpoint-lg) {
+        grid-template-columns: 50.7% 1fr;
+        margin-block-start: spacing.$spacer-max;
+    }
+
+    &__text {
+        @media (min-width: breakpoints.$breakpoint-lg) {
+            max-width: 65ch; 
+            grid-column: 2;
+            align-self: end;
+        }
+    }
+
+    &__text a {
+        text-decoration: underline;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 3px;
     }
 }
 
