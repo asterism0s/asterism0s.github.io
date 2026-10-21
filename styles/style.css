@@ -238,20 +238,28 @@ body {
 
 .hero {
   display: grid;
+  grid-template-rows: calc(3em + 0.75rem) auto;
   container-type: inline-size;
   max-width: calc(71rem + 2 * clamp(1.25rem, 14vw, 3.5rem));
+  margin-block-start: 2rem;
   margin-inline: auto;
   padding-inline: clamp(1.25rem, 14vw, 3.5rem);
 }
+@media (min-width: 64rem) {
+  .hero {
+    grid-template-rows: auto;
+    margin-block-start: 0;
+  }
+}
 .hero__intro {
-  grid-area: 1/1;
-  margin-block-end: 1rem;
+  position: relative;
+  z-index: 1;
+  grid-area: 1/1/3/2;
 }
 @media (min-width: 64rem) {
   .hero__intro {
-    position: relative;
     grid-area: 2/1;
-    margin-block: 36.1% 0;
+    margin-block-start: 36.1%;
     margin-inline-start: 9.2%;
   }
 }
@@ -296,17 +304,18 @@ body {
 }
 .hero__title {
   position: relative;
+  z-index: 1;
   grid-area: 2/1;
   align-self: start;
   margin-block-start: 48.5%;
-  margin-inline-start: 45%;
-  font-size: clamp(2rem, 0.4rem + 5.75vw, 7.3rem);
+  margin-inline-start: 47%;
+  font-size: clamp(1.5rem, 10.5cqi, 7.3125rem);
   line-height: 1.33;
+  letter-spacing: 0.05em;
 }
 @media (min-width: 64rem) {
   .hero__title {
     margin-block-start: 36.5%;
-    margin-inline-start: 47.8%;
   }
 }
 

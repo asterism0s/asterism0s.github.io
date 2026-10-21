@@ -6,19 +6,26 @@
 
 .hero {
     display: grid;
-    container-type: inline-size; // lets the title size itself by the hero's width
+    grid-template-rows: calc(3em + #{spacing.$spacer-nano}) auto;
+    container-type: inline-size; 
     max-width: calc(#{spacing.$container} + 2 * #{spacing.$gutter});
+    margin-block-start: spacing.$spacer-2xs;
     margin-inline: auto;
     padding-inline: spacing.$gutter;
 
+    @media (min-width: breakpoints.$breakpoint-lg) {
+        grid-template-rows: auto;
+        margin-block-start: 0;
+    }
+
     &__intro {
-        grid-area: 1 / 1;
-        margin-block-end: spacing.$spacer-baseline;
+        position: relative;
+        z-index: 1;
+        grid-area: 1 / 1 / 3 / 2;
 
         @media (min-width: breakpoints.$breakpoint-lg) {
-            position: relative; // sits above the gradient
             grid-area: 2 / 1;
-            margin-block: 36.1% 0;
+            margin-block-start: 36.1%;
             margin-inline-start: 9.2%;
         }
     }
@@ -27,16 +34,15 @@
         margin-block-end: spacing.$spacer-nano;
     }
 
-    // Gradient frame: blobs drift in and out, and overflow: hidden clips them at the edges
     &__gradient {
         position: relative;
         grid-area: 2 / 1;
         overflow: hidden;
-        aspect-ratio: 272 / 193; // mobile crop from the Figma
+        aspect-ratio: 272 / 193; 
         background-color: colors.$color-gradient-frame;
 
         @media (min-width: breakpoints.$breakpoint-lg) {
-            aspect-ratio: 1136 / 662; // desktop crop from the Figma
+            aspect-ratio: 1136 / 662; 
         }
     }
 
@@ -69,17 +75,19 @@
     }
 
     &__title {
-        position: relative; // sits above the gradient
+        position: relative;
+        z-index: 1; 
         grid-area: 2 / 1;
         align-self: start;
         margin-block-start: 48.5%;
-        margin-inline-start: 45%;
+        margin-inline-start: 47%;
         font-size: fonts.$font-size-display;
         line-height: fonts.$line-height-display;
+        letter-spacing: fonts.$letter-spacing-base;
 
         @media (min-width: breakpoints.$breakpoint-lg) {
             margin-block-start: 36.5%;
-            margin-inline-start: 47.8%;
+           
         }
     }
 }
