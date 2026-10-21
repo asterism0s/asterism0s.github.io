@@ -47,10 +47,6 @@
 
     &__link {
         font-size: fonts.$font-size-micro;
-
-        @media (min-width: breakpoints.$breakpoint-lg) {
-            font-size: fonts.$font-size-nano;
-        }
     }
 }
 

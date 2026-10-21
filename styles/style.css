@@ -90,7 +90,7 @@ html {
 
 body {
   font-family: "Baskervville", Georgia, serif;
-  font-size: 1rem;
+  font-size: 0.8125rem;
   line-height: 1.8;
   letter-spacing: 0.05em;
   font-kerning: normal;
@@ -98,7 +98,7 @@ body {
 }
 @media (min-width: 64rem) {
   body {
-    font-size: 0.625rem;
+    font-size: 0.875rem;
   }
 }
 
@@ -154,11 +154,6 @@ body {
 }
 .site-nav__link {
   font-size: 0.875rem;
-}
-@media (min-width: 64rem) {
-  .site-nav__link {
-    font-size: 0.75rem;
-  }
 }
 
 .site-nav__list:has([aria-current=page]) .site-nav__link:not([aria-current=page]) {
@@ -308,7 +303,7 @@ body {
   grid-area: 2/1;
   align-self: start;
   margin-block-start: 48.5%;
-  margin-inline-start: 47%;
+  margin-inline-start: 48%;
   font-size: clamp(1.5rem, 10.5cqi, 7.3125rem);
   line-height: 1.33;
   letter-spacing: 0.05em;
@@ -317,6 +312,32 @@ body {
   .hero__title {
     margin-block-start: 36.5%;
   }
+}
+
+.about {
+  display: grid;
+  max-width: calc(71rem + 2 * clamp(1.25rem, 14vw, 3.5rem));
+  margin-block-start: 6rem;
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 14vw, 3.5rem);
+}
+@media (min-width: 64rem) {
+  .about {
+    grid-template-columns: 50.7% 1fr;
+    margin-block-start: 10rem;
+  }
+}
+@media (min-width: 64rem) {
+  .about__text {
+    max-width: 65ch;
+    grid-column: 2;
+    align-self: end;
+  }
+}
+.about__text a {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
 }
 
 @keyframes blob-drift {
