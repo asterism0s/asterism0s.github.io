@@ -1,0 +1,49 @@
+@use "../abstracts/spacing";
+@use "../abstracts/breakpoints";
+
+
+.site-footer {
+    display: grid;
+    overflow: hidden; 
+    
+
+    @media (min-width: breakpoints.$breakpoint-lg) {
+        max-width: 100rem; 
+        margin-block-start: spacing.$spacer-2xl;
+        margin-inline: auto;
+    }
+
+    &__inner {
+        position: relative;
+        z-index: 1;
+        grid-area: 1 / 1;
+        align-self: start;
+        width: 100%;
+        max-width: calc(#{spacing.$container} + 2 * #{spacing.$gutter});
+        margin-block-start: 23.3%;
+        margin-inline: auto;
+        padding-inline: spacing.$gutter;
+
+        @media (min-width: breakpoints.$breakpoint-lg) {
+              margin-block-start: calc(26% - #{spacing.$spacer-3xl});
+        }
+    }
+
+    &__illustration {
+        grid-area: 1 / 1;
+        width: 127%;
+        max-width: none;
+        margin-inline-start: -16%;
+        mix-blend-mode: darken;
+
+        @media (min-width: breakpoints.$breakpoint-lg) {
+            width: 100%;
+            margin-inline-start: 0;
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+}

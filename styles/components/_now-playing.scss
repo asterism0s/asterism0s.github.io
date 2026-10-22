@@ -1,0 +1,67 @@
+@use "../abstracts/colors";
+@use "../abstracts/spacing";
+@use "../abstracts/breakpoints";
+@use "../base/fonts";
+
+.now-playing {
+    &__label {
+        margin-block-end: spacing.$spacer-quark;
+
+        @media (min-width: breakpoints.$breakpoint-lg) {
+            margin-block-end: spacing.$spacer-nano;
+        }
+    }
+
+    &__track {
+        display: flex;
+        gap: spacing.$spacer-quark;
+        align-items: center;
+
+        @media (min-width: breakpoints.$breakpoint-lg) {
+            gap: spacing.$spacer-nano;
+        }
+    }
+
+  
+    &__cover {
+        flex-shrink: 0;
+        width: 1.75rem; 
+        aspect-ratio: 1;
+        overflow: hidden;
+        background-color: colors.$color-placeholder;
+
+        @media (min-width: breakpoints.$breakpoint-lg) {
+            width: 3rem; 
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+
+           
+            &[hidden] {
+                display: none;
+            }
+        }
+    }
+
+    &__info {
+        min-width: 0; 
+        font-family: fonts.$font-secondary;
+        line-height: 1.25;
+        color: colors.$color-text-muted;
+    }
+
+    &__title,
+    &__artist {
+        display: block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    &__title {
+        font-weight: 700;
+    }
+}
