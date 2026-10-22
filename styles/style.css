@@ -130,10 +130,12 @@ body {
 .site-header__logo {
   display: block;
   width: 7.5rem;
+  margin-inline-start: -2rem;
 }
 @media (min-width: 64rem) {
   .site-header__logo {
     width: 9rem;
+    margin-inline-start: -1rem;
   }
 }
 .site-header__logo img {

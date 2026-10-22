@@ -20,9 +20,11 @@
     &__logo {
         display: block;
         width: 7.5rem;
+        margin-inline-start: -2 * spacing.$spacer-baseline;
 
         @media (min-width: breakpoints.$breakpoint-lg) {
             width: 9rem;
+            margin-inline-start: -2 * spacing.$spacer-quark; 
         }
 
         img {
