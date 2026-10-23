@@ -291,11 +291,12 @@ body {
 .site-footer {
   display: grid;
   overflow: hidden;
+  margin-block-start: -3rem;
 }
 @media (min-width: 64rem) {
   .site-footer {
     max-width: 100rem;
-    margin-block-start: 6rem;
+    margin-block-start: calc(6.5rem + 6rem - min(26%, 26rem));
     margin-inline: auto;
   }
 }
@@ -432,7 +433,7 @@ body {
 @media (min-width: 64rem) {
   .about__text {
     max-width: 65ch;
-    grid-column: 2;
+    grid-area: 1/2;
     align-self: end;
   }
 }
@@ -440,6 +441,33 @@ body {
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 3px;
+}
+.about__photo {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.about__photo--portrait {
+  width: 75.5%;
+  aspect-ratio: 3/4;
+}
+.about__photo--cat {
+  position: relative;
+  width: 58.3%;
+  aspect-ratio: 4/3;
+  margin-block-start: -20.1%;
+  margin-inline-start: 41.7%;
+}
+.about__photos {
+  width: 86.6%;
+  margin-block-start: 3rem;
+}
+@media (min-width: 64rem) {
+  .about__photos {
+    grid-area: 1/1;
+    align-self: end;
+    width: 72.4%;
+    margin-block-start: 0;
+  }
 }
 
 @keyframes blob-drift {

@@ -4,12 +4,13 @@
 
 .site-footer {
     display: grid;
-    overflow: hidden; 
+    overflow: hidden;
+    margin-block-start: -1 * spacing.$spacer-sm;
     
 
     @media (min-width: breakpoints.$breakpoint-lg) {
         max-width: 100rem; 
-        margin-block-start: spacing.$spacer-2xl;
+        margin-block-start: calc(#{spacing.$spacer-3xl} + #{spacing.$spacer-2xl} - min(26%, 26rem));
         margin-inline: auto;
     }
 

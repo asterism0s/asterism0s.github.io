@@ -107,7 +107,7 @@
     &__text {
         @media (min-width: breakpoints.$breakpoint-lg) {
             max-width: 65ch; 
-            grid-column: 2;
+            grid-area: 1 / 2; 
             align-self: end;
         }
     }
@@ -116,6 +116,35 @@
         text-decoration: underline;
         text-decoration-thickness: 1px;
         text-underline-offset: 3px;
+    }
+
+    &__photo {
+        object-fit: cover; 
+        
+        &--portrait {
+            width: 75.5%; 
+            aspect-ratio: 3 / 4;
+        }
+
+        &--cat {
+            position: relative; 
+            width: 58.3%; 
+            aspect-ratio: 4 / 3;
+            margin-block-start: -20.1%;
+            margin-inline-start: 41.7%;
+        }
+    }
+
+    &__photos {
+        width: 86.6%;
+        margin-block-start: spacing.$spacer-sm;
+
+        @media (min-width: breakpoints.$breakpoint-lg) {
+            grid-area: 1 / 1;
+            align-self: end;
+            width: 72.4%;
+            margin-block-start: 0;
+        }
     }
 }
 
