@@ -324,6 +324,7 @@ body {
   max-width: none;
   margin-inline-start: -16%;
   mix-blend-mode: darken;
+  pointer-events: none;
 }
 @media (min-width: 64rem) {
   .site-footer__illustration {
