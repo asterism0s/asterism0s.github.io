@@ -388,25 +388,49 @@ body {
   position: absolute;
   width: 70%;
   aspect-ratio: 1;
-  border-radius: 50%;
-  animation: blob-drift 20s ease-in-out infinite alternate;
+  animation: blob-drift 17s ease-in-out infinite alternate;
 }
 .hero__blob--coral {
   inset: 30% auto auto -10%;
-  background: radial-gradient(circle closest-side, #F09C8A, transparent);
+  color: #F09C8A;
   animation-duration: 22s;
 }
 .hero__blob--peach {
-  inset: -35% auto auto -15%;
-  background: radial-gradient(circle closest-side, #F8D9BF, transparent);
-  animation-duration: 26s;
+  inset: -20% auto auto -5%;
+  color: #F5C7A1;
+  animation-duration: 22s;
   animation-delay: -8s;
 }
 .hero__blob--olive {
   inset: -30% -10% auto auto;
-  background: radial-gradient(circle closest-side, #A3A27E, transparent);
-  animation-duration: 18s;
+  color: #A3A27E;
+  animation-duration: 15s;
   animation-delay: -4s;
+}
+.hero__blob-part {
+  position: absolute;
+  inset: 15%;
+  background: radial-gradient(circle closest-side, currentColor, transparent);
+  opacity: 0.45;
+  animation: blob-wobble 9s ease-in-out infinite alternate;
+}
+.hero__blob-part:nth-child(1) {
+  translate: -12% -8%;
+}
+.hero__blob-part:nth-child(2) {
+  translate: 12% -6%;
+  animation-duration: 11s;
+  animation-delay: -3s;
+}
+.hero__blob-part:nth-child(3) {
+  translate: 8% 12%;
+  animation-duration: 7s;
+  animation-delay: -5s;
+}
+.hero__blob-part:nth-child(4) {
+  translate: -10% 10%;
+  animation-duration: 13s;
+  animation-delay: -2s;
 }
 .hero__title {
   position: relative;
@@ -490,5 +514,16 @@ body {
   }
   100% {
     transform: translate(15%, 25%) scale(1.05);
+  }
+}
+@keyframes blob-wobble {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(15%, -10%) scale(1.15);
+  }
+  100% {
+    transform: translate(-12%, 12%) scale(0.85);
   }
 }/*# sourceMappingURL=style.css.map */

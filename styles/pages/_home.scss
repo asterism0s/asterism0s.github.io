@@ -50,27 +50,56 @@
         position: absolute;
         width: 70%;
         aspect-ratio: 1;
-        border-radius: 50%;
-        animation: blob-drift 20s ease-in-out infinite alternate;
+        animation: blob-drift 17s ease-in-out infinite alternate;
 
         &--coral {
             inset: 30% auto auto -10%;
-            background: radial-gradient(circle closest-side, colors.$color-blob-coral, transparent);
+            color: colors.$color-blob-coral;
             animation-duration: 22s;
         }
 
         &--peach {
-            inset: -35% auto auto -15%;
-            background: radial-gradient(circle closest-side, colors.$color-blob-peach, transparent);
-            animation-duration: 26s;
+            inset: -20% auto auto -5%;
+            color: colors.$color-blob-peach;
+            animation-duration: 22s;
             animation-delay: -8s;
         }
 
         &--olive {
             inset: -30% -10% auto auto;
-            background: radial-gradient(circle closest-side, colors.$color-blob-olive, transparent);
-            animation-duration: 18s;
+            color: colors.$color-blob-olive;
+            animation-duration: 15s;
             animation-delay: -4s;
+        }
+    }
+
+     &__blob-part {
+        position: absolute;
+        inset: 15%;
+        background: radial-gradient(circle closest-side, currentColor, transparent);
+        opacity: 0.45;
+        animation: blob-wobble 9s ease-in-out infinite alternate;
+
+        &:nth-child(1) {
+            translate: -12% -8%;
+        }
+
+        &:nth-child(2) {
+            translate: 12% -6%;
+            animation-duration: 11s;
+            animation-delay: -3s;
+        }
+
+        &:nth-child(3) {
+            translate: 8% 12%;
+            animation-duration: 7s;
+            animation-delay: -5s;
+        }
+
+        &:nth-child(4) {
+            translate: -10% 10%;
+            animation-duration: 13s;
+            animation-delay: -2s;
         }
     }
 
@@ -164,5 +193,20 @@
 
     100% {
         transform: translate(15%, 25%) scale(1.05);
+    }
+}
+
+
+@keyframes blob-wobble {
+    0% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    50% {
+        transform: translate(15%, -10%) scale(1.15);
+    }
+
+    100% {
+        transform: translate(-12%, 12%) scale(0.85);
     }
 }
