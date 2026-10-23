@@ -1,0 +1,42 @@
+@use "../abstracts/spacing";
+@use "../abstracts/breakpoints";
+@use "../base/fonts";
+
+.coming-soon {
+    display: grid;
+    min-height: 60svh; 
+    max-width: calc(#{spacing.$container} + 2 * #{spacing.$gutter});
+    margin-block-start: spacing.$spacer-2xl;
+    margin-inline: auto;
+    padding-inline: spacing.$gutter;
+
+    @media (min-width: breakpoints.$breakpoint-lg) {
+        grid-template-columns: 50.7% 1fr;
+        min-height: 0;
+        margin-block-start: spacing.$spacer-max;
+    }
+
+    &__content {
+        @media (min-width: breakpoints.$breakpoint-lg) {
+            grid-column: 2;
+            max-width: 65ch;
+        }
+    }
+
+    &__title {
+        margin-block-end: spacing.$spacer-3xs;
+        font-size: fonts.$font-size-sm;
+        line-height: fonts.$line-height-display;
+        letter-spacing: fonts.$letter-spacing-base;
+
+        @media (min-width: breakpoints.$breakpoint-lg) {
+            font-size: fonts.$font-size-lg;
+        }
+    }
+
+    a {
+        text-decoration: underline;
+        text-decoration-thickness: 1px;
+        text-underline-offset: 3px;
+    }
+}

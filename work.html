@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>work · sarah siqueira</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
+        <link rel="stylesheet" href="styles/style.css">
+        <link href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&family=Figtree:wght@400;700&display=swap"
+            rel="stylesheet">
+        <script src="js/menu.js" defer></script>
+        <script src="js/now-playing.js" defer></script>
+    </head>
+
+    <body>
+        <header class="site-header">
+            <a class="site-header__logo" href="index.html">
+                <img src="assets/icons/logo.svg" alt="Sarah Siqueira, home" width="144" height="99">
+            </a>
+
+            <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" hidden>
+                <span class="menu-toggle__line"></span>
+                <span class="menu-toggle__line"></span>
+                <span class="visually-hidden">Menu</span>
+            </button>
+
+            <nav class="site-nav" id="site-nav" aria-label="Main">
+                <ul class="site-nav__list">
+                    <li><a class="site-nav__link" href="resume.html">resume</a></li>
+                    <li><a class="site-nav__link" href="work.html" aria-current="page">work</a></li>
+                    <li><a class="site-nav__link" href="writing.html">writing</a></li>
+                    <li><a class="site-nav__link" href="pictures.html">pictures</a></li>
+                    <li><a class="site-nav__link" href="illustrations.html">illustrations</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main id="content">
+            <section class="coming-soon">
+                <div class="coming-soon__content">
+                    <h1 class="coming-soon__title">work.</h1>
+                    <p>this page is still being typeset. come back in a few days.</p>
+                    <p>in the meantime, you can reach me at <a href="mailto:sarahssiqueira@proton.me">sarahssiqueira@proton.me</a> or go back to the <a href="index.html">home page</a>.</p>
+                </div>
+            </section>
+        </main>
+
+        <footer class="site-footer">
+            <div class="site-footer__inner">
+                <div class="now-playing" data-now-playing hidden>
+                    <p class="now-playing__label" data-np-label>listening now...</p>
+                    <div class="now-playing__track">
+                        <div class="now-playing__cover">
+                            <img data-np-cover alt="" width="300" height="300" hidden>
+                        </div>
+                        <div class="now-playing__info">
+                            <a class="now-playing__title" data-np-link href="#"></a>
+                            <span class="now-playing__artist" data-np-artist></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <picture class="site-footer__illustration">
+                <source media="(min-width: 64rem)" srcset="assets/images/footer/footer-field.webp" width="1600" height="843">
+                <img src="assets/images/footer/footer-field-mobile.webp" alt="" width="990" height="597">
+            </picture>
+        </footer>
+    </body>
+
+</html>

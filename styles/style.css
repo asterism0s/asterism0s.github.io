@@ -526,4 +526,41 @@ body {
   100% {
     transform: translate(-12%, 12%) scale(0.85);
   }
+}
+.coming-soon {
+  display: grid;
+  min-height: 60svh;
+  max-width: calc(71rem + 2 * clamp(1.25rem, 14vw, 3.5rem));
+  margin-block-start: 6rem;
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 14vw, 3.5rem);
+}
+@media (min-width: 64rem) {
+  .coming-soon {
+    grid-template-columns: 50.7% 1fr;
+    min-height: 0;
+    margin-block-start: 10rem;
+  }
+}
+@media (min-width: 64rem) {
+  .coming-soon__content {
+    grid-column: 2;
+    max-width: 65ch;
+  }
+}
+.coming-soon__title {
+  margin-block-end: 1.5rem;
+  font-size: 3rem;
+  line-height: 1.33;
+  letter-spacing: 0.05em;
+}
+@media (min-width: 64rem) {
+  .coming-soon__title {
+    font-size: 4.5rem;
+  }
+}
+.coming-soon a {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
 }/*# sourceMappingURL=style.css.map */
