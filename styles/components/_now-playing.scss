@@ -49,6 +49,7 @@
     &__info {
         min-width: 0; 
         font-family: fonts.$font-secondary;
+        font-size: fonts.$font-size-nano;
         line-height: 1.25;
         color: colors.$color-text-muted;
     }
