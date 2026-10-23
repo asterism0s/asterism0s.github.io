@@ -58,6 +58,8 @@ html {
 body {
   color: #2C2C2C;
   background-color: #FBF8F3;
+  background-image: url("../assets/images/grain.svg");
+  background-size: 12.5rem;
 }
 
 h1,
