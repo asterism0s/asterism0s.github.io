@@ -329,6 +329,12 @@ body {
     margin-inline-start: 0;
   }
 }
+@media (min-width: 100rem) {
+  .site-footer__illustration {
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 15%, #000 85%, transparent);
+            mask-image: linear-gradient(to right, transparent, #000 15%, #000 85%, transparent);
+  }
+}
 .site-footer__illustration img {
   width: 100%;
   height: auto;

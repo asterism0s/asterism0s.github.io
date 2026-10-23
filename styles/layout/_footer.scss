@@ -42,6 +42,11 @@
             margin-inline-start: 0;
         }
 
+        // Wider screens
+        @media (min-width: breakpoints.$breakpoint-xl) {
+            mask-image: linear-gradient(to right, transparent, #000 15%, #000 85%, transparent);
+        }
+
         img {
             width: 100%;
             height: auto;
