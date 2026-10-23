@@ -528,9 +528,20 @@ body {
     transform: translate(-12%, 12%) scale(0.85);
   }
 }
+body:has(.coming-soon) {
+  display: flex;
+  flex-direction: column;
+  min-height: 100svh;
+}
+body:has(.coming-soon) > * {
+  width: 100%;
+}
+body:has(.coming-soon) main {
+  flex-grow: 1;
+}
+
 .coming-soon {
   display: grid;
-  min-height: 60svh;
   max-width: calc(71rem + 2 * clamp(1.25rem, 14vw, 3.5rem));
   margin-block-start: 6rem;
   margin-inline: auto;
@@ -539,7 +550,6 @@ body {
 @media (min-width: 64rem) {
   .coming-soon {
     grid-template-columns: 50.7% 1fr;
-    min-height: 0;
     margin-block-start: 10rem;
   }
 }

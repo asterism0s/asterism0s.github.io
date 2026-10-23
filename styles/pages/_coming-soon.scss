@@ -2,9 +2,22 @@
 @use "../abstracts/breakpoints";
 @use "../base/fonts";
 
+body:has(.coming-soon) {
+    display: flex;
+    flex-direction: column;
+    min-height: 100svh;
+
+    > * {
+        width: 100%;
+    }
+
+    main {
+        flex-grow: 1; 
+    }
+}
+
 .coming-soon {
     display: grid;
-    min-height: 60svh; 
     max-width: calc(#{spacing.$container} + 2 * #{spacing.$gutter});
     margin-block-start: spacing.$spacer-2xl;
     margin-inline: auto;
@@ -12,7 +25,6 @@
 
     @media (min-width: breakpoints.$breakpoint-lg) {
         grid-template-columns: 50.7% 1fr;
-        min-height: 0;
         margin-block-start: spacing.$spacer-max;
     }
 
