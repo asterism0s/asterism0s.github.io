@@ -153,6 +153,11 @@
         &--portrait {
             width: 75.5%; 
             aspect-ratio: 3 / 4;
+            box-shadow:
+                0 6.625rem 2.625rem rgba(0, 0, 0, 0.01),
+                0 3.75rem 2.25rem rgba(0, 0, 0, 0.05),
+                0 1.625rem 1.625rem rgba(0, 0, 0, 0.09),
+                0 0.4375rem 0.9375rem rgba(0, 0, 0, 0.1);
         }
 
         &--cat {
@@ -161,6 +166,11 @@
             aspect-ratio: 4 / 3;
             margin-block-start: -20.1%;
             margin-inline-start: 41.7%;
+            box-shadow:
+                0 3.8125rem 1.5rem rgba(0, 0, 0, 0.01),
+                0 2.125rem 1.3125rem rgba(0, 0, 0, 0.05),
+                0 0.9375rem 0.9375rem rgba(0, 0, 0, 0.09),
+                0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
         }
     }
 
