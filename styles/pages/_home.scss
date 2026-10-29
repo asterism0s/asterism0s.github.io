@@ -25,7 +25,7 @@
 
         @media (min-width: breakpoints.$breakpoint-lg) {
             grid-area: 2 / 1;
-            margin-block-start: 36.1%;
+            margin-block-start: 52.8%;
             margin-inline-start: 9.2%;
         }
     }
@@ -38,11 +38,11 @@
         position: relative;
         grid-area: 2 / 1;
         overflow: hidden;
-        aspect-ratio: 272 / 193; 
+        aspect-ratio: 6 / 5; 
         background-color: colors.$color-gradient-frame;
 
         @media (min-width: breakpoints.$breakpoint-lg) {
-            aspect-ratio: 1136 / 662; 
+            aspect-ratio: 4 / 3; 
         }
     }
 
@@ -108,14 +108,14 @@
         z-index: 1; 
         grid-area: 2 / 1;
         align-self: start;
-        margin-block-start: 48.5%;
+        margin-block-start: 60.9%;
         margin-inline-start: 48%;
         font-size: fonts.$font-size-display;
         line-height: fonts.$line-height-display;
         letter-spacing: fonts.$letter-spacing-base;
 
         @media (min-width: breakpoints.$breakpoint-lg) {
-            margin-block-start: 36.5%;
+            margin-block-start: 53.2%;
            
         }
     }

@@ -367,7 +367,7 @@ body {
 @media (min-width: 64rem) {
   .hero__intro {
     grid-area: 2/1;
-    margin-block-start: 36.1%;
+    margin-block-start: 52.8%;
     margin-inline-start: 9.2%;
   }
 }
@@ -378,12 +378,12 @@ body {
   position: relative;
   grid-area: 2/1;
   overflow: hidden;
-  aspect-ratio: 272/193;
+  aspect-ratio: 6/5;
   background-color: #F7EEE4;
 }
 @media (min-width: 64rem) {
   .hero__gradient {
-    aspect-ratio: 1136/662;
+    aspect-ratio: 4/3;
   }
 }
 .hero__blob {
@@ -439,7 +439,7 @@ body {
   z-index: 1;
   grid-area: 2/1;
   align-self: start;
-  margin-block-start: 48.5%;
+  margin-block-start: 60.9%;
   margin-inline-start: 48%;
   font-size: clamp(1.5rem, 10.5cqi, 7.3125rem);
   line-height: 1.33;
@@ -447,7 +447,7 @@ body {
 }
 @media (min-width: 64rem) {
   .hero__title {
-    margin-block-start: 36.5%;
+    margin-block-start: 53.2%;
   }
 }
 
