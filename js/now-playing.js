@@ -36,8 +36,9 @@ function renderTrack(track) {
     const link = nowPlaying.querySelector("[data-np-link]");
 
     nowPlaying.querySelector("[data-np-label]").textContent = track.isLive
-        ? "listening now..."
-        : "last played...";
+        ? "listening now"
+        : "last played";
+    nowPlaying.dataset.live = track.isLive;
 
     link.textContent = track.title;
     link.href = track.url;
