@@ -1,0 +1,22 @@
+block variables
+
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        title= pageTitle
+        link(rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml")
+        link(rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css")
+        link(rel="stylesheet" href="styles/style.css")
+        link(rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&family=Figtree:wght@400;700&display=swap")
+        script(src="js/menu.js" defer)
+        script(src="js/now-playing.js" defer)
+
+    body
+        include ../partials/header
+
+        main#content
+            block content
+
+        include ../partials/footer

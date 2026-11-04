@@ -1,0 +1,13 @@
+.now-playing(data-now-playing hidden)
+    p.now-playing__label
+        span(data-np-label) listening now
+        span.now-playing__dots(aria-hidden="true")
+            span .
+            span .
+            span .
+    .now-playing__track
+        .now-playing__cover
+            img(data-np-cover alt="" width="300" height="300" hidden)
+        .now-playing__info
+            a.now-playing__title(data-np-link href="#")
+            span.now-playing__artist(data-np-artist)
