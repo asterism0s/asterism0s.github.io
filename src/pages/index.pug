@@ -1,0 +1,35 @@
+extends ../layouts/default
+
+block variables
+    - var pageTitle = "sarah siqueira · web developer & visual designer"
+    - var currentPage = "home"
+
+mixin blob(color)
+    span.hero__blob(class=`hero__blob--${color}`)
+        each part in [1, 2, 3, 4]
+            span.hero__blob-part
+
+block content
+    section.hero(aria-labelledby="hero-title")
+        .hero__intro
+            p.hero__name sarah siqueira.
+            p.hero__tagline a brazilian webdev &amp; visual designer.#[br]based in stockholm.
+
+        .hero__gradient(aria-hidden="true")
+            +blob("peach")
+            +blob("olive")
+            +blob("coral")
+
+        h1.hero__title#hero-title typesetting#[br]the web
+
+    section.about(aria-label="About me")
+        .about__text
+            p between lines of code and vector lines, i find where my worlds meet.
+            p i have a multidisciplinary background, and i approach problems with a curious and authentic perspective that allows me to solve complex challenges while paying attention even to the smallest details.
+            p you can find me on #[a(href="https://www.linkedin.com/in/sarah-siqueira/") linkedin], #[a(href="https://github.com/asterism0s") github] or #[a(href="https://www.behance.net/sarah-siqueira") behance].
+            p away from the screen, you’ll find me on long walks, watching birds, taking pictures or with a book in hand. i also spend my free time embroidering while watching e.r. or playing games.
+            p let’s talk! reach me at #[a(href="mailto:sarahssiqueira@proton.me") sarahssiqueira@proton.me].
+
+        .about__photos
+            img.about__photo.about__photo--portrait(src="assets/images/about/sarah-siqueira.webp" alt="Black and white portrait of Sarah, smiling, with glasses and long dark hair." width="361" height="481")
+            img.about__photo.about__photo--cat(src="assets/images/about/cat.webp" alt="My cat lying on a white blanket by the window." width="278" height="208")
