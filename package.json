@@ -1,0 +1,11 @@
+{
+    "name": "asterism0s.github.io",
+    "private": true,
+    "scripts": {
+        "build": "pug3 src/pages --out . --pretty",
+        "dev": "pug3 src/pages --out . --pretty --watch"
+    },
+    "devDependencies": {
+        "@anduh/pug-cli": "^1.0.0-alpha8"
+    }
+}
