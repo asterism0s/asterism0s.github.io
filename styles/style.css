@@ -497,6 +497,19 @@ body {
   text-underline-offset: 3px;
 }
 .about__photo {
+  position: relative;
+  isolation: isolate;
+}
+.about__photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, #404040 5.77%, rgba(111, 111, 111, 0.15) 40%, rgba(191, 191, 191, 0) 70%);
+  mix-blend-mode: hard-light;
+}
+.about__photo img {
+  width: 100%;
+  height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
 }
@@ -506,7 +519,6 @@ body {
   box-shadow: 0 6.625rem 2.625rem rgba(0, 0, 0, 0.01), 0 3.75rem 2.25rem rgba(0, 0, 0, 0.05), 0 1.625rem 1.625rem rgba(0, 0, 0, 0.09), 0 0.4375rem 0.9375rem rgba(0, 0, 0, 0.1);
 }
 .about__photo--cat {
-  position: relative;
   width: 58.3%;
   aspect-ratio: 4/3;
   margin-block-start: -20.1%;
