@@ -518,6 +518,14 @@ body {
   aspect-ratio: 3/4;
   box-shadow: 0 6.625rem 2.625rem rgba(0, 0, 0, 0.01), 0 3.75rem 2.25rem rgba(0, 0, 0, 0.05), 0 1.625rem 1.625rem rgba(0, 0, 0, 0.09), 0 0.4375rem 0.9375rem rgba(0, 0, 0, 0.1);
 }
+.about__photo--portrait::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("../assets/images/noise.svg") 0 0/12.5rem;
+  opacity: 0.3;
+  mix-blend-mode: screen;
+}
 .about__photo--cat {
   width: 58.3%;
   aspect-ratio: 4/3;
