@@ -44,7 +44,7 @@
         width: 1.75rem; 
         aspect-ratio: 1;
         overflow: hidden;
-        background-color: colors.$color-placeholder;
+        background: colors.$color-placeholder url("../assets/icons/cover-placeholder.svg") center / cover no-repeat;
 
         @media (min-width: breakpoints.$breakpoint-lg) {
             width: 3rem; 
