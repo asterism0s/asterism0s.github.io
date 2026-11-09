@@ -16,7 +16,7 @@
         display: inline-block;
     }
 
-    &[data-live="true"] &__dots span {
+    &[data-live="true"]:has([data-np-cover]:not([hidden])) &__dots span {
         animation: dot-jump 1.5s ease-in-out infinite;
 
         &:nth-child(2) {
