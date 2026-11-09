@@ -7,7 +7,14 @@
             span .
     .now-playing__track
         .now-playing__cover
+            .now-playing__wave(aria-hidden="true")
+                span
+                span
+                span
+                span
+                span
             img(data-np-cover alt="" width="300" height="300" hidden)
+
         .now-playing__info
             a.now-playing__title(data-np-link href="#")
             span.now-playing__artist(data-np-artist)
