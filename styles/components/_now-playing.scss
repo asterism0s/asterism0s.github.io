@@ -66,6 +66,16 @@
             }
         }
     }
+    
+
+    &:not([data-live="true"]) &__cover {
+        background-image: url("../assets/icons/cover-placeholder.svg");
+        background-size: cover;
+    }
+
+    &:not([data-live="true"]) &__wave {
+        visibility: hidden;
+    }
 
     &__wave {
         display: flex;

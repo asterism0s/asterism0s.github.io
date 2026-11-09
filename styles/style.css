@@ -172,6 +172,13 @@ body {
 .now-playing__cover img[hidden] {
   display: none;
 }
+.now-playing:not([data-live=true]) .now-playing__cover {
+  background-image: url("../assets/icons/cover-placeholder.svg");
+  background-size: cover;
+}
+.now-playing:not([data-live=true]) .now-playing__wave {
+  visibility: hidden;
+}
 .now-playing__wave {
   display: flex;
   gap: round(7cqi, 1px);
