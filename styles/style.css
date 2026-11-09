@@ -265,7 +265,7 @@ body {
 }
 @media (min-width: 64rem) {
   .site-header {
-    padding-block: 2rem;
+    padding-block: 2rem 0.9375rem;
   }
 }
 .site-header__logo {

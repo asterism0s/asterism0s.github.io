@@ -14,7 +14,7 @@
     padding: spacing.$spacer-baseline spacing.$gutter;
 
     @media (min-width: breakpoints.$breakpoint-lg) {
-        padding-block: spacing.$spacer-2xs;
+        padding-block: spacing.$spacer-2xs 0.9375rem;
     }
 
     &__logo {
