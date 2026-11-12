@@ -437,7 +437,10 @@ html[data-blob-drag] {
 }
 
 .site-nav__list:has([aria-current=page]) .site-nav__link:not([aria-current=page]) {
-  color: #555555;
+  color: #858585;
+}
+.site-nav__list:has([aria-current=page]) .site-nav__link:not([aria-current=page]):hover, .site-nav__list:has([aria-current=page]) .site-nav__link:not([aria-current=page]):focus-visible {
+  color: #2C2C2C;
 }
 
 .site-header[data-menu] .site-nav {

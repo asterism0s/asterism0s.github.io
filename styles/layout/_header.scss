@@ -54,7 +54,12 @@
 
 
 .site-nav__list:has([aria-current="page"]) .site-nav__link:not([aria-current="page"]) {
-    color: colors.$color-text-muted;
+    color: colors.$color-text-light;
+
+    &:hover,
+    &:focus-visible {
+        color: colors.$color-text-primary;
+    }
 }
 
 
