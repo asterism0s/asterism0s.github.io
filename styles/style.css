@@ -876,11 +876,14 @@ body:has(.coming-soon) main {
   }
 }
 .resume-list__item {
+  --line-color: color-mix(in srgb, #CFCFCF 50%, transparent);
   display: grid;
   -moz-column-gap: 1rem;
        column-gap: 1rem;
   padding-block: calc(0.5rem - 1px) 0.5rem;
-  border-block-start: 1px solid color-mix(in srgb, #CFCFCF 50%, transparent);
+  border-block-start: 1px solid;
+  -o-border-image: var(--blob-line, linear-gradient(var(--line-color), var(--line-color))) 1;
+     border-image: var(--blob-line, linear-gradient(var(--line-color), var(--line-color))) 1;
   line-height: 1rem;
 }
 @media (min-width: 64rem) {

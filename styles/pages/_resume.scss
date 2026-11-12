@@ -57,15 +57,20 @@
     }
 
     &__item {
+        --line-color: color-mix(in srgb, #{colors.$color-line} 50%, transparent);
+
         display: grid;
         column-gap: spacing.$spacer-baseline;
         padding-block: calc(#{spacing.$spacer-quark} - 1px) spacing.$spacer-quark;
-        border-block-start: 1px solid color-mix(in srgb, #{colors.$color-line} 50%, transparent);
+        border-block-start: 1px solid;
+        border-image: var(--blob-line, linear-gradient(var(--line-color), var(--line-color))) 1;
         line-height: fonts.$line-height-caption;
 
         @media (min-width: breakpoints.$breakpoint-lg) {
             grid-template-columns: 1fr auto;
         }
+
+        
 
         p {
             margin: 0;

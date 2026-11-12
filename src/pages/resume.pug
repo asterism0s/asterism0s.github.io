@@ -23,7 +23,7 @@ mixin resume-list(title, entries)
         h2.resume-list__title(id=`${title}-title`)= title
         ul.resume-list__items
             each entry in entries
-                li.resume-list__item
+                li.resume-list__item(data-blob-line)
                     p.resume-list__name= entry.name
                     p.resume-list__detail= entry.detail
                     p.resume-list__period= entry.period

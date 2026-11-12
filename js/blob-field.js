@@ -1,6 +1,9 @@
 const blobField = document.querySelector(".blob-field");
 const root = document.documentElement;
 const interactiveSelector = "a, button, input, textarea, select, label";
+const blobLines = document.querySelectorAll("[data-blob-line]");
+const lineColor = "var(--line-color)";
+const lineFade = 24;
 
 let drag = null;
 let hoverFrame = null;
@@ -100,10 +103,70 @@ function endDrag() {
     }, { once: true });
 }
 
+function pieceCircles() {
+    return [...blobField.querySelectorAll(".blob-field__piece")].map((piece) => {
+        const rect = piece.getBoundingClientRect();
+        const radius = rect.width / 2;
+        return { x: rect.left + radius, y: rect.top + radius, radius };
+    });
+}
+
+function lineGradient(line, circles) {
+    const rect = line.getBoundingClientRect();
+    if (rect.bottom < 0 || rect.top > window.innerHeight) return null;
+
+    const segments = circles
+        .filter((circle) => Math.abs(rect.top - circle.y) < circle.radius)
+        .map((circle) => {
+            const half = Math.sqrt(circle.radius ** 2 - (rect.top - circle.y) ** 2);
+            return [circle.x - half - rect.left, circle.x + half - rect.left];
+        })
+        .filter(([start, end]) => end > 0 && start < rect.width)
+        .sort((a, b) => a[0] - b[0]);
+
+    const merged = [];
+    for (const segment of segments) {
+        const last = merged.at(-1);
+        if (last && segment[0] <= last[1] + lineFade * 2) {
+            last[1] = Math.max(last[1], segment[1]);
+        } else {
+            merged.push([...segment]);
+        }
+    }
+
+    if (!merged.length) return null;
+
+    const stops = merged.map(([start, end]) => [
+        `${lineColor} ${start - lineFade}px`,
+        `transparent ${start}px`,
+        `transparent ${end}px`,
+        `${lineColor} ${end + lineFade}px`,
+    ].join(", "));
+
+    return `linear-gradient(90deg, ${stops.join(", ")})`;
+}
+
+function paintLines() {
+    const circles = pieceCircles();
+    const gradients = [...blobLines].map((line) => lineGradient(line, circles));
+
+    blobLines.forEach((line, index) => {
+        if (gradients[index]) {
+            line.style.setProperty("--blob-line", gradients[index]);
+        } else {
+            line.style.removeProperty("--blob-line");
+        }
+    });
+
+    requestAnimationFrame(paintLines);
+}
+
 if (blobField) {
     document.addEventListener("pointerdown", startDrag);
     document.addEventListener("pointermove", moveDrag);
     document.addEventListener("pointerup", endDrag);
     document.addEventListener("pointercancel", endDrag);
     window.addEventListener("blur", endDrag);
+
+    if (blobLines.length) paintLines();
 }
