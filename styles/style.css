@@ -225,13 +225,13 @@ body {
 .now-playing__info {
   min-width: 0;
   font-family: "Figtree", system-ui, sans-serif;
-  font-size: 0.6875rem;
+  font-size: 0.75rem;
   line-height: 1.25;
   color: #555555;
 }
 @media (min-width: 64rem) {
   .now-playing__info {
-    font-size: 0.625rem;
+    font-size: 0.75rem;
   }
 }
 .now-playing__title, .now-playing__artist {
@@ -832,14 +832,14 @@ body:has(.coming-soon) main {
   margin-block-start: -1rem;
   margin-inline: auto;
   padding-inline: clamp(1.25rem, 14vw, 3.5rem);
-  font-size: 1.5rem;
+  font-size: 1rem;
   line-height: 3rem;
   letter-spacing: 0.05em;
 }
 @media (min-width: 64rem) {
   .resume-intro {
     margin-block-start: 5rem;
-    font-size: 2.25rem;
+    font-size: 2.5rem;
     line-height: 3.75rem;
   }
 }
@@ -853,13 +853,13 @@ body:has(.coming-soon) main {
   margin-inline: auto;
   padding-inline: clamp(1.25rem, 14vw, 3.5rem);
   font-family: "Figtree", system-ui, sans-serif;
-  font-size: 0.6875rem;
+  font-size: 0.75rem;
   letter-spacing: 0.05em;
 }
 @media (min-width: 64rem) {
   .resume-list {
     margin-block-start: 8rem;
-    font-size: 0.625rem;
+    font-size: 0.75rem;
   }
 }
 .resume-list + .resume-list {
@@ -908,7 +908,7 @@ body:has(.coming-soon) main {
   color: #717171;
 }
 .resume-list__period {
-  font-size: 0.625rem;
+  font-size: 0.75rem;
 }
 @media (min-width: 64rem) {
   .resume-list__period {

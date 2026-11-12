@@ -7,10 +7,6 @@ $font-size-display: clamp(1.5rem, 10.5cqi, 7.3125rem);
 $font-size-body-mobile: 0.8125rem;
 $font-size-body-desktop:  0.875rem;
 
-$font-size-lead-mobile: fonts.$font-size-3xs;
-$font-size-lead-desktop: 2.25rem;
-$font-size-caption: 0.625rem;
-$font-size-caption-mobile: 0.6875rem;
 
 $font-size-min: 0.25rem;
 $font-size-quark: 0.5rem;
@@ -28,6 +24,11 @@ $font-size-2xl: 6rem;
 $font-size-3xl: 6.5rem;
 $font-size-mega: 8rem;
 $font-size-max: 10rem;
+
+$font-size-lead-mobile: $font-size-baseline;
+$font-size-lead-desktop: $font-size-xs;
+$font-size-caption: $font-size-nano;
+$font-size-caption-mobile: $font-size-nano;
 
 // Type rhythm
 $line-height-base: 1.8;
