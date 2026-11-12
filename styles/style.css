@@ -225,9 +225,14 @@ body {
 .now-playing__info {
   min-width: 0;
   font-family: "Figtree", system-ui, sans-serif;
-  font-size: 0.75rem;
+  font-size: 0.6875rem;
   line-height: 1.25;
   color: #555555;
+}
+@media (min-width: 64rem) {
+  .now-playing__info {
+    font-size: 0.625rem;
+  }
 }
 .now-playing__title, .now-playing__artist {
   display: block;

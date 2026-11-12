@@ -131,9 +131,13 @@
     &__info {
         min-width: 0; 
         font-family: fonts.$font-secondary;
-        font-size: fonts.$font-size-nano;
+        font-size: fonts.$font-size-caption-mobile;
         line-height: 1.25;
         color: colors.$color-text-muted;
+
+        @media (min-width: breakpoints.$breakpoint-lg) {
+            font-size: fonts.$font-size-caption;
+        }
     }
 
     &__title,
