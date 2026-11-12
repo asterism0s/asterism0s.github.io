@@ -274,7 +274,7 @@ body {
   position: absolute;
   width: 48vmin;
   aspect-ratio: 1;
-  filter: url("#blob-goo") blur(2rem);
+  filter: blur(2rem);
   animation: blob-roam 44s ease-in-out infinite alternate;
 }
 .blob-field__blob--coral {
@@ -301,6 +301,11 @@ body {
   color: #A3A27E;
   animation-duration: 52s;
   animation-delay: -26s;
+}
+.blob-field__goo {
+  position: absolute;
+  inset: 0;
+  filter: url("#blob-goo");
 }
 .blob-field__piece {
   position: absolute;
@@ -552,7 +557,6 @@ html[data-blob-drag] {
   width: 127%;
   max-width: none;
   margin-inline-start: -16%;
-  mix-blend-mode: darken;
   pointer-events: none;
 }
 @media (min-width: 64rem) {

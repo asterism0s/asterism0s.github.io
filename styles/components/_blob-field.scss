@@ -15,7 +15,7 @@
         position: absolute;
         width: 48vmin;
         aspect-ratio: 1;
-        filter: url("#blob-goo") blur(2rem);
+        filter: blur(2rem);
         animation: blob-roam 44s ease-in-out infinite alternate;
 
         &--coral {
@@ -47,6 +47,12 @@
             animation-duration: 52s;
             animation-delay: -26s;
         }
+    }
+
+    &__goo {
+        position: absolute;
+        inset: 0;
+        filter: url("#blob-goo");
     }
 
     &__piece {
