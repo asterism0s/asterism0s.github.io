@@ -23,7 +23,7 @@
     }
 }
 
-.experience {
+.resume-list {
     max-width: calc(#{spacing.$container} + 2 * #{spacing.$gutter});
     margin-block-start: spacing.$spacer-2xl;
     margin-inline: auto;
@@ -37,13 +37,17 @@
         font-size: fonts.$font-size-caption;
     }
 
+    & + & {
+        margin-block-start: spacing.$spacer-2xs;
+    }
+
     &__title {
         margin-block-end: spacing.$spacer-quark;
         font-size: inherit;
         line-height: 1.5rem;
     }
 
-    &__list {
+    &__items {
         display: grid;
         column-gap: spacing.$spacer-baseline;
 
@@ -68,13 +72,13 @@
         }
     }
 
-    &__company {
+    &__name {
         @media (min-width: breakpoints.$breakpoint-lg) {
             font-weight: 500;
         }
     }
 
-    &__role,
+    &__detail,
     &__period {
         color: colors.$color-text-subtle;
     }

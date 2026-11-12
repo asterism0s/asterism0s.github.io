@@ -5,11 +5,28 @@ block variables
     - var currentPage = "resume"
     -
         var jobs = [
-            { company: "omvida", role: "web developer", period: "2026" },
-            { company: "elemento design", role: "visual designer & front-end developer", period: "2017–2021" },
-            { company: "editora atheneu", role: "editorial producer", period: "2014–2015" },
-            { company: "letternet publishing Comany", role: "cultural manager", period: "2011–2012" }
+            { name: "omvida", detail: "web developer", period: "2026" },
+            { name: "elemento design", detail: "visual designer & front-end developer", period: "2017–2021" },
+            { name: "editora atheneu", detail: "editorial producer", period: "2014–2015" },
+            { name: "letternet publishing company", detail: "cultural manager", period: "2011–2012" }
         ]
+    -
+        var studies = [
+            { name: "harvard university", detail: "cs50w: web programming with python and javascript", period: "in progress" },
+            { name: "harvard university", detail: "cs50x: introduction to computer science", period: "2025" },
+            { name: "senac", detail: "postgraduate in editorial design", period: "2015–2016" },
+            { name: "universidade tuiuti do paraná", detail: "degree in modern languages and literature", period: "2009-2013" }
+        ]
+
+mixin resume-list(title, entries)
+    section.resume-list(aria-labelledby=`${title}-title`)
+        h2.resume-list__title(id=`${title}-title`)= title
+        ul.resume-list__items
+            each entry in entries
+                li.resume-list__item
+                    p.resume-list__name= entry.name
+                    p.resume-list__detail= entry.detail
+                    p.resume-list__period= entry.period
 
 block scripts
     script(src="js/blob-field.js" defer)
@@ -21,11 +38,5 @@ block content
         p sarah siqueira is a brazilian front-end developer and visual designer based in stockholm, building accessible, carefully typeset websites where code and design meet.
         p with a degree in languages and literature and a postgraduate in editorial design, she brings an editor’s eye for typography, rhythm and detail to the web.
 
-    section.experience(aria-labelledby="experience-title")
-        h2.experience__title#experience-title experience
-        ul.experience__list
-            each job in jobs
-                li.experience__item
-                    p.experience__company= job.company
-                    p.experience__role= job.role
-                    p.experience__period= job.period
+    +resume-list("experience", jobs)
+    +resume-list("education", studies)
