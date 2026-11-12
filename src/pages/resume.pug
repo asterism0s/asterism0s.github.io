@@ -1,5 +1,31 @@
-extends ../layouts/placeholder
+extends ../layouts/default
 
 block variables
     - var pageTitle = "resume · sarah siqueira"
     - var currentPage = "resume"
+    -
+        var jobs = [
+            { company: "omvida", role: "web developer", period: "2026" },
+            { company: "elemento design", role: "visual designer & front-end developer", period: "2017–2021" },
+            { company: "company", role: "role", period: "year–year" },
+            { company: "company", role: "role", period: "year–year" }
+        ]
+
+block scripts
+    script(src="js/blob-field.js" defer)
+
+block content
+    include ../partials/blob-field
+
+    section.resume-intro(aria-label="About me")
+        p sarah siqueira is a brazilian front-end developer and visual designer based in stockholm, building accessible, carefully typeset websites where code and design meet.
+        p with a degree in languages and literature and a postgraduate in editorial design, she brings an editor’s eye for typography, rhythm and detail to the web.
+
+    section.experience(aria-labelledby="experience-title")
+        h2.experience__title#experience-title experience
+        ul.experience__list
+            each job in jobs
+                li.experience__item
+                    p.experience__company= job.company
+                    p.experience__role= job.role
+                    p.experience__period= job.period

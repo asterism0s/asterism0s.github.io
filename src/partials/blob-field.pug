@@ -1,0 +1,10 @@
+.blob-field(aria-hidden="true")
+    svg.blob-field__filters(width="0" height="0")
+        filter#blob-goo
+            feGaussianBlur(in="SourceGraphic" stdDeviation="18")
+            feColorMatrix(values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 24 -10")
+
+    each color in ["coral", "peach", "olive"]
+        .blob-field__blob(class=`blob-field__blob--${color}`)
+            each piece in [1, 2, 3, 4, 5, 6, 7]
+                span.blob-field__piece

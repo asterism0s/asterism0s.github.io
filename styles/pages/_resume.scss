@@ -1,0 +1,90 @@
+@use "../abstracts/colors";
+@use "../abstracts/spacing";
+@use "../abstracts/breakpoints";
+@use "../base/fonts";
+
+.resume-intro {
+    max-width: calc(#{spacing.$container} + 2 * #{spacing.$gutter});
+    margin-block-start: -1 * spacing.$spacer-baseline;
+    margin-inline: auto;
+    padding-inline: spacing.$gutter;
+    font-size: fonts.$font-size-lead-mobile;
+    line-height: fonts.$line-height-lead-mobile;
+    letter-spacing: fonts.$letter-spacing-base;
+
+    @media (min-width: breakpoints.$breakpoint-lg) {
+        margin-block-start: spacing.$spacer-xl;
+        font-size: fonts.$font-size-lead-desktop;
+        line-height: fonts.$line-height-lead-desktop;
+    }
+
+    p {
+        margin-block-end: 1lh;
+    }
+}
+
+.experience {
+    max-width: calc(#{spacing.$container} + 2 * #{spacing.$gutter});
+    margin-block-start: spacing.$spacer-2xl;
+    margin-inline: auto;
+    padding-inline: spacing.$gutter;
+    font-family: fonts.$font-secondary;
+    font-size: fonts.$font-size-caption-mobile;
+    letter-spacing: fonts.$letter-spacing-base;
+
+    @media (min-width: breakpoints.$breakpoint-lg) {
+        margin-block-start: spacing.$spacer-mega;
+        font-size: fonts.$font-size-caption;
+    }
+
+    &__title {
+        margin-block-end: spacing.$spacer-quark;
+        font-size: inherit;
+        line-height: 1.5rem;
+    }
+
+    &__list {
+        display: grid;
+        column-gap: spacing.$spacer-baseline;
+
+        @media (min-width: breakpoints.$breakpoint-lg) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    &__item {
+        display: grid;
+        column-gap: spacing.$spacer-baseline;
+        padding-block: calc(#{spacing.$spacer-quark} - 1px) spacing.$spacer-quark;
+        border-block-start: 1px solid color-mix(in srgb, #{colors.$color-line} 50%, transparent);
+        line-height: fonts.$line-height-caption;
+
+        @media (min-width: breakpoints.$breakpoint-lg) {
+            grid-template-columns: 1fr auto;
+        }
+
+        p {
+            margin: 0;
+        }
+    }
+
+    &__company {
+        @media (min-width: breakpoints.$breakpoint-lg) {
+            font-weight: 500;
+        }
+    }
+
+    &__role,
+    &__period {
+        color: colors.$color-text-subtle;
+    }
+
+    &__period {
+        font-size: fonts.$font-size-caption;
+
+        @media (min-width: breakpoints.$breakpoint-lg) {
+            grid-area: 1 / 2 / 3 / 3;
+            align-self: end;
+        }
+    }
+}

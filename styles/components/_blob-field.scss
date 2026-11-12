@@ -1,0 +1,158 @@
+@use "../abstracts/colors";
+
+.blob-field {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    overflow-x: clip;
+    pointer-events: none;
+
+    &__filters {
+        position: absolute;
+    }
+
+    &__blob {
+        position: absolute;
+        width: 48vmin;
+        aspect-ratio: 1;
+        filter: url("#blob-goo") blur(2rem);
+        animation: blob-roam 44s ease-in-out infinite alternate;
+
+        &--coral {
+            top: 30%;
+            left: 4%;
+            color: colors.$color-blob-coral;
+        }
+
+        &--peach {
+            --flip-x: -1;
+            --tempo: 1.35;
+            --shift: -2s;
+
+            top: 55%;
+            left: 42%;
+            color: colors.$color-blob-peach;
+            animation-duration: 38s;
+            animation-delay: -12s;
+        }
+
+        &--olive {
+            --flip-y: -1;
+            --tempo: 0.8;
+            --shift: -3.5s;
+
+            top: 2%;
+            left: 62%;
+            color: colors.$color-blob-olive;
+            animation-duration: 52s;
+            animation-delay: -26s;
+        }
+    }
+
+    &__piece {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: var(--size);
+        aspect-ratio: 1;
+        margin: calc(var(--size) / -2) 0 0 calc(var(--size) / -2);
+        border-radius: 50%;
+        background-color: currentColor;
+        animation: blob-piece-wander ease-in-out infinite;
+        animation-duration: calc(var(--duration) * var(--tempo, 1));
+        animation-delay: calc(var(--delay, 0s) + var(--shift, 0s));
+
+        &:nth-child(1) {
+            --size: 55%;
+            --dx: 8%;
+            --dy: -6%;
+            --duration: 7s;
+        }
+
+        &:nth-child(2) {
+            --size: 32%;
+            --dx: 70%;
+            --dy: -40%;
+            --duration: 5s;
+            --delay: -1s;
+        }
+
+        &:nth-child(3) {
+            --size: 28%;
+            --dx: -80%;
+            --dy: 30%;
+            --duration: 6s;
+            --delay: -2s;
+        }
+
+        &:nth-child(4) {
+            --size: 36%;
+            --dx: 40%;
+            --dy: 75%;
+            --duration: 5.5s;
+            --delay: -3s;
+        }
+
+        &:nth-child(5) {
+            --size: 25%;
+            --dx: -50%;
+            --dy: -85%;
+            --duration: 6.5s;
+            --delay: -0.5s;
+        }
+
+        &:nth-child(6) {
+            --size: 30%;
+            --dx: 95%;
+            --dy: 20%;
+            --duration: 4.5s;
+            --delay: -2.5s;
+        }
+
+        &:nth-child(7) {
+            --size: 22%;
+            --dx: -30%;
+            --dy: 90%;
+            --duration: 7.5s;
+            --delay: -1.5s;
+        }
+    }
+}
+
+html[data-blob-hover] {
+    cursor: grab;
+}
+
+html[data-blob-drag] {
+    cursor: grabbing;
+    user-select: none;
+}
+
+@keyframes blob-roam {
+    0% {
+        translate: 0 0;
+    }
+
+    33% {
+        translate: 22vw 18vh;
+    }
+
+    66% {
+        translate: -18vw 30vh;
+    }
+
+    100% {
+        translate: 14vw -14vh;
+    }
+}
+
+@keyframes blob-piece-wander {
+    0%,
+    100% {
+        translate: 0 0;
+    }
+
+    50% {
+        translate: calc(var(--dx) * var(--flip-x, 1)) calc(var(--dy) * var(--flip-y, 1));
+    }
+}

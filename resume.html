@@ -7,9 +7,10 @@
     <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
     <link rel="stylesheet" href="styles/style.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&amp;family=Figtree:wght@400;700&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&amp;family=Figtree:wght@400;500;700&amp;display=swap">
     <script src="js/menu.js" defer></script>
     <script src="js/now-playing.js" defer></script>
+    <script src="js/blob-field.js" defer></script>
   </head>
   <body>
     <header class="site-header"><a class="site-header__logo" href="index.html"><img src="assets/icons/logo.svg" alt="Sarah Siqueira, home" width="144" height="99"></a>
@@ -25,12 +26,48 @@
       </nav>
     </header>
     <main id="content">
-      <section class="coming-soon">
-        <div class="coming-soon__content">
-          <h1 class="coming-soon__title">resume.</h1>
-          <p>this page is still being typeset. come back in a few days.</p>
-          <p>in the meantime, you can reach me at <a href="mailto:sarahssiqueira@proton.me">sarahssiqueira@proton.me</a> or go back to the <a href="index.html">home page</a>.</p>
+      <div class="blob-field" aria-hidden="true">
+        <svg class="blob-field__filters" width="0" height="0">
+          <filter id="blob-goo">
+            <feGaussianBlur in="SourceGraphic" stdDeviation="18"></feGaussianBlur>
+            <feColorMatrix values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 24 -10"></feColorMatrix>
+          </filter>
+        </svg>
+        <div class="blob-field__blob blob-field__blob--coral"><span class="blob-field__piece"></span><span class="blob-field__piece"></span><span class="blob-field__piece"></span><span class="blob-field__piece"></span><span class="blob-field__piece"></span><span class="blob-field__piece"></span><span class="blob-field__piece"></span>
         </div>
+        <div class="blob-field__blob blob-field__blob--peach"><span class="blob-field__piece"></span><span class="blob-field__piece"></span><span class="blob-field__piece"></span><span class="blob-field__piece"></span><span class="blob-field__piece"></span><span class="blob-field__piece"></span><span class="blob-field__piece"></span>
+        </div>
+        <div class="blob-field__blob blob-field__blob--olive"><span class="blob-field__piece"></span><span class="blob-field__piece"></span><span class="blob-field__piece"></span><span class="blob-field__piece"></span><span class="blob-field__piece"></span><span class="blob-field__piece"></span><span class="blob-field__piece"></span>
+        </div>
+      </div>
+      <section class="resume-intro" aria-label="About me">
+        <p>sarah siqueira is a brazilian front-end developer and visual designer based in stockholm, building accessible, carefully typeset websites where code and design meet.</p>
+        <p>with a degree in languages and literature and a postgraduate in editorial design, she brings an editor’s eye for typography, rhythm and detail to the web.</p>
+      </section>
+      <section class="experience" aria-labelledby="experience-title">
+        <h2 class="experience__title" id="experience-title">experience</h2>
+        <ul class="experience__list">
+          <li class="experience__item">
+            <p class="experience__company">omvida</p>
+            <p class="experience__role">web developer</p>
+            <p class="experience__period">2026</p>
+          </li>
+          <li class="experience__item">
+            <p class="experience__company">elemento design</p>
+            <p class="experience__role">visual designer &amp; front-end developer</p>
+            <p class="experience__period">2017–2021</p>
+          </li>
+          <li class="experience__item">
+            <p class="experience__company">company</p>
+            <p class="experience__role">role</p>
+            <p class="experience__period">year–year</p>
+          </li>
+          <li class="experience__item">
+            <p class="experience__company">company</p>
+            <p class="experience__role">role</p>
+            <p class="experience__period">year–year</p>
+          </li>
+        </ul>
       </section>
     </main>
     <footer class="site-footer">
