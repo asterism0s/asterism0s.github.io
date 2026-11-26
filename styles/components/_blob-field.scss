@@ -1,126 +1,68 @@
 @use "../abstracts/colors";
+@use "../abstracts/spacing";
 
 .blob-field {
     position: absolute;
     inset: 0;
     z-index: -1;
     overflow-x: clip;
+    translate: 0 calc(2 * #{spacing.$spacer-max});
     pointer-events: none;
-
-    &__filters {
-        position: absolute;
-    }
 
     &__blob {
         position: absolute;
-        width: 48vmin;
+        width: min(70vw, 50rem);
         aspect-ratio: 1;
-        filter: blur(2rem);
-        animation: blob-roam 44s ease-in-out infinite alternate;
+        animation: blob-drift 17s ease-in-out infinite alternate;
 
         &--coral {
-            top: 30%;
-            left: 4%;
+            inset: 30% auto auto -10%;
             color: colors.$color-blob-coral;
+            animation-duration: 22s;
         }
 
         &--peach {
-            --flip-x: -1;
-            --tempo: 1.35;
-            --shift: -2s;
-
-            top: 55%;
-            left: 42%;
+            inset: -20% auto auto -5%;
             color: colors.$color-blob-peach;
-            animation-duration: 38s;
-            animation-delay: -12s;
+            animation-duration: 22s;
+            animation-delay: -8s;
         }
 
         &--olive {
-            --flip-y: -1;
-            --tempo: 0.8;
-            --shift: -3.5s;
-
-            top: 2%;
-            left: 62%;
+            inset: -30% -10% auto auto;
             color: colors.$color-blob-olive;
-            animation-duration: 52s;
-            animation-delay: -26s;
+            animation-duration: 15s;
+            animation-delay: -4s;
         }
-    }
-
-    &__goo {
-        position: absolute;
-        inset: 0;
-        filter: url("#blob-goo");
     }
 
     &__piece {
         position: absolute;
-        top: 50%;
-        left: 50%;
-        width: var(--size);
-        aspect-ratio: 1;
-        margin: calc(var(--size) / -2) 0 0 calc(var(--size) / -2);
-        border-radius: 50%;
-        background-color: currentColor;
-        animation: blob-piece-wander ease-in-out infinite;
-        animation-duration: calc(var(--duration) * var(--tempo, 1));
-        animation-delay: calc(var(--delay, 0s) + var(--shift, 0s));
+        inset: 15%;
+        background: radial-gradient(circle closest-side, currentColor, transparent);
+        opacity: 0.45;
+        animation: blob-wobble 9s ease-in-out infinite alternate;
 
         &:nth-child(1) {
-            --size: 55%;
-            --dx: 8%;
-            --dy: -6%;
-            --duration: 7s;
+            translate: -12% -8%;
         }
 
         &:nth-child(2) {
-            --size: 32%;
-            --dx: 70%;
-            --dy: -40%;
-            --duration: 5s;
-            --delay: -1s;
+            translate: 12% -6%;
+            animation-duration: 11s;
+            animation-delay: -3s;
         }
 
         &:nth-child(3) {
-            --size: 28%;
-            --dx: -80%;
-            --dy: 30%;
-            --duration: 6s;
-            --delay: -2s;
+            translate: 8% 12%;
+            animation-duration: 7s;
+            animation-delay: -5s;
         }
 
         &:nth-child(4) {
-            --size: 36%;
-            --dx: 40%;
-            --dy: 75%;
-            --duration: 5.5s;
-            --delay: -3s;
-        }
-
-        &:nth-child(5) {
-            --size: 25%;
-            --dx: -50%;
-            --dy: -85%;
-            --duration: 6.5s;
-            --delay: -0.5s;
-        }
-
-        &:nth-child(6) {
-            --size: 30%;
-            --dx: 95%;
-            --dy: 20%;
-            --duration: 4.5s;
-            --delay: -2.5s;
-        }
-
-        &:nth-child(7) {
-            --size: 22%;
-            --dx: -30%;
-            --dy: 90%;
-            --duration: 7.5s;
-            --delay: -1.5s;
+            translate: -10% 10%;
+            animation-duration: 13s;
+            animation-delay: -2s;
         }
     }
 }
@@ -132,33 +74,4 @@ html[data-blob-hover] {
 html[data-blob-drag] {
     cursor: grabbing;
     user-select: none;
-}
-
-@keyframes blob-roam {
-    0% {
-        translate: 0 0;
-    }
-
-    33% {
-        translate: 22vw 18vh;
-    }
-
-    66% {
-        translate: -18vw 30vh;
-    }
-
-    100% {
-        translate: 14vw -14vh;
-    }
-}
-
-@keyframes blob-piece-wander {
-    0%,
-    100% {
-        translate: 0 0;
-    }
-
-    50% {
-        translate: calc(var(--dx) * var(--flip-x, 1)) calc(var(--dy) * var(--flip-y, 1));
-    }
 }

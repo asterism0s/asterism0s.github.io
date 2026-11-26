@@ -4,6 +4,8 @@ const interactiveSelector = "a, button, input, textarea, select, label";
 const blobLines = document.querySelectorAll("[data-blob-line]");
 const lineColor = "var(--line-color)";
 const lineFade = 24;
+const visibleRadius = 0.7;
+const grabEase = 0.85;
 
 let drag = null;
 let hoverFrame = null;
@@ -14,25 +16,41 @@ function centerOf(element) {
 }
 
 function pieceAt(x, y) {
-    const pieces = [...blobField.querySelectorAll(".blob-field__piece")].reverse();
+    let closest = null;
+    let closestDistance = visibleRadius;
 
-    return pieces.find((piece) => {
-        const rect = piece.getBoundingClientRect();
-        const radius = rect.width / 2;
-        return Math.hypot(x - (rect.left + radius), y - (rect.top + radius)) <= radius;
+    blobField.querySelectorAll(".blob-field__piece").forEach((piece) => {
+        const center = centerOf(piece);
+        const radius = piece.getBoundingClientRect().width / 2;
+        const distance = Math.hypot(x - center.x, y - center.y) / radius;
+
+        if (distance <= closestDistance) {
+            closest = piece;
+            closestDistance = distance;
+        }
     });
+
+    return closest;
 }
 
 function canGrab(event) {
     return event.pointerType !== "touch" && !event.target.closest(interactiveSelector);
 }
 
+function scaleOf(element) {
+    return element.getBoundingClientRect().width / element.offsetWidth;
+}
+
 function followPointer() {
     if (!drag) return;
 
+    drag.grabX *= grabEase;
+    drag.grabY *= grabEase;
+
     const blobCenter = centerOf(drag.blob);
-    const x = drag.pointerX - drag.grabX - blobCenter.x;
-    const y = drag.pointerY - drag.grabY - blobCenter.y;
+    const scale = scaleOf(drag.blob);
+    const x = (drag.pointerX - drag.grabX - blobCenter.x) / scale - drag.anchorX;
+    const y = (drag.pointerY - drag.grabY - blobCenter.y) / scale - drag.anchorY;
 
     drag.piece.style.translate = `${x}px ${y}px`;
     requestAnimationFrame(followPointer);
@@ -47,10 +65,12 @@ function startDrag(event) {
     event.preventDefault();
 
     const pieceCenter = centerOf(piece);
+    const blob = piece.parentElement;
 
     drag = {
         piece,
-        blob: piece.parentElement,
+        blob,
+        rest: getComputedStyle(piece).translate,
         grabX: event.clientX - pieceCenter.x,
         grabY: event.clientY - pieceCenter.y,
         pointerX: event.clientX,
@@ -59,6 +79,15 @@ function startDrag(event) {
 
     piece.style.transition = "none";
     piece.style.animation = "none";
+    piece.style.translate = "0px 0px";
+
+    const anchor = centerOf(piece);
+    const blobCenter = centerOf(blob);
+    const scale = scaleOf(blob);
+
+    drag.anchorX = (anchor.x - blobCenter.x) / scale;
+    drag.anchorY = (anchor.y - blobCenter.y) / scale;
+
     root.dataset.blobDrag = "";
     delete root.dataset.blobHover;
 
@@ -88,12 +117,12 @@ function moveDrag(event) {
 function endDrag() {
     if (!drag) return;
 
-    const { piece } = drag;
+    const { piece, rest } = drag;
     drag = null;
     delete root.dataset.blobDrag;
 
     piece.style.transition = "translate 0.9s cubic-bezier(0.34, 1.56, 0.64, 1)";
-    piece.style.translate = "0px 0px";
+    piece.style.translate = rest;
 
     piece.addEventListener("transitionend", () => {
         piece.style.removeProperty("transition");
@@ -105,9 +134,9 @@ function endDrag() {
 
 function pieceCircles() {
     return [...blobField.querySelectorAll(".blob-field__piece")].map((piece) => {
-        const rect = piece.getBoundingClientRect();
-        const radius = rect.width / 2;
-        return { x: rect.left + radius, y: rect.top + radius, radius };
+        const center = centerOf(piece);
+        const radius = (piece.getBoundingClientRect().width / 2) * visibleRadius;
+        return { ...center, radius };
     });
 }
 
